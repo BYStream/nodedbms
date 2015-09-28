@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title User Signin
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/signin.css')
+  body
+    div.container
+      form(class='form-signin', action='', method='post')
+        h2.form-signin-heading Sign in
+        label(class='sr-only', for='input') Username
+        input(type='text', id='inputUsername', name='userid', class='form-control', placeholder='Username', required='', autofocus='')
+        label(for='inputPassword', class='sr-only') Password
+        input(type='password', id='inputPassword', name='password', class='form-control', placeholder='Password', required='')
+        p
+        button(class='btn btn-lg btn-primary btn-block', type='submit') Sign in
+script(src='js/jquery.min.js')
+script(src='js/bootstrap.min.js')

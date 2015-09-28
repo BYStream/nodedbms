@@ -1,0 +1,39 @@
+extends layout
+
+block title
+  title Dashboard
+block content
+  h1.page-header Dashboard
+  div.row.placeholders
+    div.col-xs-6.col-sm-3.placeholder
+      div(id='cpuStatus', data-dimension='250', data-text='35%', data-info='CPU activity ratio', data-width='30', data-fontsize='38', data-percent='35', data-fgcolor='#61a9dc', data-bgcolor='#eee')
+    div.col-xs-6.col-sm-3.placeholder
+      div(id='memoryStatus', data-dimension='250', data-text='#{heapUsage}MB', data-info='HeapMemory Used', data-width='30', data-fontsize='38', data-percent='#{memUsagep}', data-fgcolor='#61a9dc', data-bgcolor='#eee')
+    div.col-xs-6.col-sm-3.placeholder
+      div(id='diskStatus', data-dimension='250', data-text='10MB/s', data-info='Disk I/O', data-width='30', data-fontsize='38', data-percent='93', data-fgcolor='#61a9dc', data-bgcolor='#eee')
+    div.col-xs-6.col-sm-3.placeholder
+      div(id='internetStatus', data-dimension='250', data-text='3.2MB/s', data-info='Internet I/O', data-width='30', data-fontsize='38', data-percent='20', data-fgcolor='#61a9dc', data-bgcolor='#eee')
+  script(type='text/javascript').
+    $(document).ready(function(){
+      $('#cpuStatus').circliful();
+      $('#memoryStatus').circliful();
+      $('#diskStatus').circliful();
+      $('#internetStatus').circliful();
+    });
+  h2.sub-header Section title
+  div.table-responsive
+    table.table.table-striped
+      thead
+        tr
+          th #
+          th Header
+          th Header
+          th Header
+          th Header
+      tbody
+        tr
+          td 1,001
+          td Lorem
+          td ipsum
+          td dolor
+          td sit

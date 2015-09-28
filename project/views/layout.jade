@@ -1,0 +1,76 @@
+doctype html
+html(lang='en')
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    block title
+    title Administration System
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel='stylesheet', href='/css/jquery.circliful.css')
+    script(src='/js/jquery.min.js')
+    script(src='/js/jquery.circliful.min.js')
+    script(src='/js/bootstrap.min.js')
+  body
+    if success
+      div.alert.alert-success#alert Well done! #{success}
+    else if error
+      div.alert.alert-danger#alert Oh snap! #{error}
+    else
+      div#no-alert
+    script(type='text/javascript').
+      $(document).ready(function(){
+        $('#alert').delay(3000).hide('slow');
+      });
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      div.container-fluid
+        div.navbar-header
+          button(type='button', class='navbar-toggle collapsed', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only  Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand Administration System
+        div#navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='#') #{username}
+            li
+              a(href='#') Settings
+            li
+              a(href='#') Help
+            li
+              a(href='/logout') Logout
+          form.navbar-form.navbar-right
+            input(type='text', class='form-control', placeholder='Search...')
+    div.container-fluid
+      div.row
+        div.col-sm-3.col-md-2.sidebar
+          ul.nav.nav-sidebar
+            if name == 'dashboard'
+              li.active
+                a(href='/dashboard') Dashboard
+            else
+              li
+                a(href='/dashboard') Dashboard
+            if name == 'database'
+              li.active
+                a(href='/database') My Database
+            else
+              li
+                a(href='/database') My Database
+            if permission == 'admin'
+              li
+                a(href='/users') User Management
+          ul.nav.nav-sidebar
+            if name == 'resetpwd'
+              li.active
+                a(href='/resetpwd') Reset Password
+            else
+              li
+                a(href='/resetpwd') Reset Password
+            li
+              a(href='/logout') Log Out
+        div.col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+          block content

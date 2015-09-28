@@ -1,0 +1,18 @@
+extends layout
+
+block title
+  title Reset Password
+block content
+  h1.page-header Reset password
+  div(style='width:300px')
+    form(action='', method='post')
+      label(for='inputPassword', class='sr-only') Current Password
+      input(type='password', id='inputPassword', class='form-control', placeholder='Current Password', required='')
+      p
+      label(for='inputPassword', class='sr-only') New Password
+      input(type='password', id='inputPassword', class='form-control', placeholder='New Password', required='')
+      p
+      label(for='inputPassword', class='sr-only') Retype new Password
+      input(type='password', id='inputPassword', class='form-control', placeholder='Retype new Password', required='')
+      p
+      button(class='btn btn-lg btn-primary btn-block', type='submit') Sign in
